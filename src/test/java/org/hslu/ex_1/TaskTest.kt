@@ -7,10 +7,11 @@ class TaskTest {
 
     @Test
     fun testTask() {
+        val n = 40
         val time = measureTimeMillis {
             val task = Task()
-            task.task(99999)
+            task.task(n)
         }
-        println("Time: $time ms")
+        println("Time (n=$n): $time ms")
     }
 }

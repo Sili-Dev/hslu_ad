@@ -18,7 +18,16 @@ class Task {
         LOG.info("Tasks executed $counter")
     }
 
-    fun task1() {counter++}
-    fun task2() {counter++}
-    fun task3() {counter++}
+    fun task1() {
+        counter++
+        Thread.sleep(1)
+    }
+    fun task2() {
+        counter++
+        Thread.sleep(2)
+    }
+    fun task3() {
+        counter++
+        Thread.sleep(3)
+    }
 }
