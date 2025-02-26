@@ -1,25 +1,25 @@
 package org.hslu.ex_2
 
-interface StackInterface {
+interface StackInterface<T> {
 
     /**
      * Pushes a value to the stack.
      * @param value The value to push.
      * @return void
      */
-    fun push(value: String)
+    fun push(value: T)
 
     /**
      * Pops the top value from the stack.
      * @return The value that was popped.
      */
-    fun pop(): String?
+    fun pop(): T?
 
     /**
      * Peeks at the top value of the stack.
      * @return The value at the top of the stack.
      */
-    fun peek(): String?
+    fun peek(): T?
 
     /**
      * Returns the size of the stack.

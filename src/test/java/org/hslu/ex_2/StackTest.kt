@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test
 class StackTest {
     @Test
     fun testPush() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         assertEquals(0, stack.size())
     }
 
     @Test
     fun testPop() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         stack.push("A")
         stack.push("B")
         stack.push("C")
@@ -24,7 +24,7 @@ class StackTest {
 
     @Test
     fun testSize() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         stack.push("A")
         stack.push("B")
         stack.push("C")
@@ -33,7 +33,7 @@ class StackTest {
 
     @Test
     fun testPushPop() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         stack.push("A")
         stack.push("B")
         stack.push("C")
@@ -47,7 +47,7 @@ class StackTest {
 
     @Test
     fun testPushOverflow() {
-        val stack = Stack(2)
+        val stack = Stack<String>(2)
         stack.push("A")
         stack.push("B")
         org.junit.jupiter.api.assertThrows<StackOverflowError> { stack.push("C") }
@@ -56,7 +56,7 @@ class StackTest {
 
     @Test
     fun testPeek() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         stack.push("A")
         stack.push("B")
         stack.push("C")
@@ -66,7 +66,7 @@ class StackTest {
 
     @Test
     fun testIsEmpty() {
-        val stack = Stack(10)
+        val stack = Stack<String>(10)
         assertTrue(stack.isEmpty())
         stack.push("A")
         assertFalse(stack.isEmpty())

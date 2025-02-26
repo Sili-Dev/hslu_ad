@@ -1,11 +1,13 @@
 package org.hslu.ex_1
 
+import java.util.Hashtable
+
 class Recursion {
     fun fiboRec1(n: Int): Int {
         return if (n <= 1) n else fiboRec1(n - 1) + fiboRec1(n - 2)
     }
 
-    private val res = mutableMapOf<Int, Int>()
+    private val res = Hashtable<Int, Int>()
     fun fiboRec2(n: Int): Int {
         if (n <= 1) {
             return n
