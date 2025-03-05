@@ -48,4 +48,12 @@ class StackmachineTest {
         val res = stackmachine.print()
         assertEquals(10, res)
     }
+
+    @Test
+    fun testExecute() {
+        val stackmachine = Stackmachine()
+        stackmachine.execute(listOf("LOAD 2", "LOAD 3", "MUL", "LOAD 5", "LOAD 1", "SUB", "ADD"))
+        val res = stackmachine.print()
+        assertEquals(10, res)
+    }
 }

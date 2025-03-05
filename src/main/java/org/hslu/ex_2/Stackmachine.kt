@@ -1,7 +1,25 @@
 package org.hslu.ex_2
 
+import kotlin.collections.List
+
 class Stackmachine {
     private val stack = Stack<Int>(10)
+
+    fun execute(program: List<String>) {
+        for (instruction in program) {
+            val parts = instruction.split(" ")
+            when (parts[0]) {
+                "LOAD" -> load(parts[1].toInt())
+                "ADD" -> add()
+                "SUB" -> sub()
+                "MUL" -> mul()
+                "DIV" -> div()
+                "PRINT" -> print()
+                "SHOW" -> showStackState()
+                else -> throw IllegalArgumentException("Unknown instruction: $instruction")
+            }
+        }
+    }
 
     fun load(value: Int) {
         stack.push(value)
