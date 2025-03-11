@@ -3,13 +3,9 @@ package org.hslu.ex_2
 import java.util.Objects
 
 class List <T> {
-    var head: Node<T>? = null
+    private var head: Node<T>? = null
 
     fun add(value: T) {
-        if (head == null) {
-            head = Node(value, null)
-            return
-        }
         head = Node(value, head)
     }
 
