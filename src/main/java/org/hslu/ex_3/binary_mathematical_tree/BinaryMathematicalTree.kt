@@ -37,11 +37,16 @@ class BinaryMathematicalTree<T : Number>(private val rootNode: OperationNode<T>)
     }
 
     private fun compileNode(node: OperationNode<T>): List<String> {
-        val left = if (node.leftNumber != null) mutableListOf("LOAD ${node.leftNumber!!.value}") else ArrayList(
-            compileNode(node.leftOperator!!)
-        )
-        val right =
-            if (node.rightNumber != null) listOf("LOAD ${node.rightNumber!!.value}") else compileNode(node.rightOperator!!)
+        val left = if (node.leftNumber != null)
+            mutableListOf("LOAD ${node.leftNumber!!.value}")
+        else
+            ArrayList(compileNode(node.leftOperator!!))
+
+        val right = if (node.rightNumber != null)
+            listOf("LOAD ${node.rightNumber!!.value}")
+        else
+            compileNode(node.rightOperator!!)
+        
         left.addAll(right)
         left.add(node.value.compiler)
         return left

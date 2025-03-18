@@ -5,7 +5,7 @@ import org.hslu.ex_3.binary_mathematical_tree.BinaryMathematicalTree
 import org.hslu.ex_3.binary_mathematical_tree.NumericNode
 import org.hslu.ex_3.binary_mathematical_tree.Operation
 import org.hslu.ex_3.binary_mathematical_tree.OperationNode
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class BinaryMathematicalTreeTest {
@@ -18,7 +18,10 @@ class BinaryMathematicalTreeTest {
         )
         val binaryMathematicalTree = BinaryMathematicalTree(tree)
         assertEquals(10.0, binaryMathematicalTree.evaluate())
-        assertEquals(listOf("LOAD 2", "LOAD 3", "MUL", "LOAD 5", "LOAD 1", "SUB", "ADD"), binaryMathematicalTree.compile())
+        assertEquals(
+            listOf("LOAD 2", "LOAD 3", "MUL", "LOAD 5", "LOAD 1", "SUB", "ADD"),
+            binaryMathematicalTree.compile()
+        )
 
         val tree2 = OperationNode(
             Operation.MULTIPLICATION,
@@ -49,8 +52,10 @@ class BinaryMathematicalTreeTest {
         val binaryMathematicalTree = BinaryMathematicalTree(tree)
         assertEquals(20.0, binaryMathematicalTree.evaluate())
         assertEquals("((2+3)*4)", binaryMathematicalTree.toString())
+
         val program = binaryMathematicalTree.compile()
         assertEquals(listOf("LOAD 2", "LOAD 3", "ADD", "LOAD 4", "MUL"), program)
+
         val stackmachine = Stackmachine()
         stackmachine.execute(program)
         assertEquals(20, stackmachine.print())
