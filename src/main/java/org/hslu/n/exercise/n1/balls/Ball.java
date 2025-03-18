@@ -6,8 +6,6 @@ package org.hslu.n.exercise.n1.balls;
 public final class Ball implements Runnable {
 
     private final Circle circle;
-    private final int size;
-    private final int offset;
 
     /**
      * Erzeugt einen Ball mit gegebenen Parametern Grösse, Position und Farbe.
@@ -18,13 +16,18 @@ public final class Ball implements Runnable {
      * @param color Farbe des Balls.
      */
     public Ball(final int size, final int xPos, final int yPos, String color) {
-        this.size = 0;
-        this.circle = null;
-        this.offset = 0;
+        circle = new Circle(size, xPos, yPos, color);
+        circle.makeVisible();
     }
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < 1000; i++) {
+            circle.moveVertical(1);
+        }
+    }
+
+    public Circle getCircle() {
+        return circle;
     }
 }
