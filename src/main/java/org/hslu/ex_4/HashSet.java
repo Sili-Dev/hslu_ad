@@ -1,5 +1,6 @@
 package org.hslu.ex_4;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class HashSet<T> implements IHashset<T> {
@@ -54,14 +55,11 @@ public class HashSet<T> implements IHashset<T> {
     }
 
     private void resize() {
-        var clone = nodes.clone();;
+        var clone = Arrays.stream(nodes).filter(Objects::nonNull).toList();
         nodes = new HashSetNode[nodes.length * RESIZE_FACTOR];
-        for (int i = 0; i < clone.length; i++) {
-            var current = clone[i];
-            if (current != null) {
-                nodes[i] = current;
-            }
-
+        size = 0;
+        for (HashSetNode<T> node : clone) {
+            add(node.getValue());
         }
     }
 
